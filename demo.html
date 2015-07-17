@@ -132,6 +132,10 @@
                 alert('Form is valid.');
             }
         })
+
+        $('#id-form').on('reset', function(e) {
+            clear_form($(this))
+        })
     </script>
 </body>
 </html>
