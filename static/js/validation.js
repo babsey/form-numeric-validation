@@ -69,7 +69,7 @@ function field_validation(field) {
             }
         }
     }
-    console.log(error_msg)
+
     if (error_msg.length == 0) {
         if (val || field.hasClass('required')) {
             div.addClass('has-success');
@@ -94,10 +94,9 @@ function form_validation(form, clean_form_action, clean_field_action) {
 
     var error_fields = [];
     form.find('input:visible:not(.checkboxinput):not(.btn)').each(function () {
-        if ($(this).val()) {
-            var clean_form = field_validation($(this))
 
-            if (clean_form) {
+        if ($(this).val() || $(this).hasClass('required')) {
+            if (field_validation($(this))) {
                 clean_field_action
             } else {
                 error_fields.push($(this));
