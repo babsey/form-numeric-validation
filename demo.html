@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neural System Prediction and Identification Challenge" />
+    <meta name="keywords" content="nuSPIC, NEST, g-node, BCF" />
+    <link type="text/css" rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <title>Form numeric validation</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-xs-6 col-xs-offset-3">
+            <h3 class="page-header"> Form numeric validation </h3>
+
+            <form action="#" class="form-horizontal row" id="id-form">
+
+                <div class="form-group" id="div_id_field1">
+                    <label class="control-label col-sm-5" for="id_field1">no restriction</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field1" class="form-control">
+                        <p class="help-block" id="hint_id_field1">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field2">
+                    <label class="control-label col-sm-5" for="id_field2">required</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field2" class="form-control required">
+                        <p class="help-block" id="hint_id_field2">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field3">
+                    <label class="control-label col-sm-5" for="id_field3">any number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field3" class="form-control number">
+                        <p class="help-block" id="hint_id_field3">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field4">
+                    <label class="control-label col-sm-5" for="id_field4">nonzero number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field4" class="form-control number nonzero">
+                        <p class="help-block" id="hint_id_field4">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field5">
+                    <label class="control-label col-sm-5" for="id_field5">positive number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field5" class="form-control number positive">
+                        <p class="help-block" id="hint_id_field5">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field6">
+                    <label class="control-label col-sm-5" for="id_field6">negative number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field6" class="form-control number negative">
+                        <p class="help-block" id="hint_id_field6">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field7">
+                    <label class="control-label col-sm-5" for="id_field7">min number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field7" class="form-control number min 5">
+                        <p class="help-block" id="hint_id_field7">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field8">
+                    <label class="control-label col-sm-5" for="id_field8">max number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field8" class="form-control number max 5">
+                        <p class="help-block" id="hint_id_field8">&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field9">
+                    <label class="control-label col-sm-5" for="id_field9">ranged number</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field9" class="form-control number min 4 max 6">
+                        <p class="help-block" id="hint_id_field9">Enter value between 4 and 6</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field10">
+                    <label class="control-label col-sm-5" for="id_field10">number list</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field10" class="form-control number list">
+                        <p class="help-block" id="hint_id_field10">Enter number seperated by comma (,)</p>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_field11">
+                    <label class="control-label col-sm-5" for="id_field11">nonzero number list</label>
+                    <div class="controls col-sm-7">
+                        <input type="text" id="id_field11" class="form-control number list nonzero">
+                        <p class="help-block" id="hint_id_field11">Enter nonzero number seperated by comma (,)</p>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" id="submit-id-save" class="btn btn-primary" value="Save" name="save">
+                    <input type="reset" id="reset-id-reset" class="btn btn-default" value="Reset" name="reset">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/validation.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#id-form input:text:visible:first').focus();
+        })
+
+        $('#id-form').find('.form-control').on('input', function() {
+            field_validation($(this));
+        })
+
+        $('#id-form').on('submit', function(e) {
+            e.preventDefault();
+            error_fields = form_validation($(this));
+            if (error_fields.length == 0) {
+                alert('Form is valid.');
+            }
+        })
+    </script>
+</body>
+</html>
+
