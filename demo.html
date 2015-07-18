@@ -118,7 +118,7 @@
             $('#id-form input:text:visible:first').focus();
         })
 
-        $('#id-form').find('.form-control').on('input', function() {
+        $('#id-form').find('.form-control').on('change', function() {
             field_validation($(this));
         })
 
