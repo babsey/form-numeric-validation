@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Form numeric validation" />
     <link type="text/css" rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <style>
+        .help-block {
+            font-size:10px;
+        }
+    </style>
     <title>Form numeric validation</title>
 </head>
 
@@ -20,7 +25,6 @@
                     <label class="control-label col-sm-5" for="id_field1">no restriction</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field1" class="form-control">
-                        <p class="help-block" id="hint_id_field1">&nbsp;</p>
                     </div>
                 </div>
 
@@ -28,7 +32,6 @@
                     <label class="control-label col-sm-5 requiredField" for="id_field2">required<span class="asteriskField">*</span></label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field2" class="form-control required">
-                        <p class="help-block" id="hint_id_field2">&nbsp;</p>
                     </div>
                 </div>
 
@@ -36,7 +39,6 @@
                     <label class="control-label col-sm-5" for="id_field3">any number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field3" class="form-control number">
-                        <p class="help-block" id="hint_id_field3">&nbsp;</p>
                     </div>
                 </div>
 
@@ -44,7 +46,6 @@
                     <label class="control-label col-sm-5" for="id_field4">nonzero number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field4" class="form-control number nonzero">
-                        <p class="help-block" id="hint_id_field4">&nbsp;</p>
                     </div>
                 </div>
 
@@ -52,7 +53,6 @@
                     <label class="control-label col-sm-5" for="id_field5">positive number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field5" class="form-control number positive">
-                        <p class="help-block" id="hint_id_field5">&nbsp;</p>
                     </div>
                 </div>
 
@@ -60,7 +60,6 @@
                     <label class="control-label col-sm-5" for="id_field6">negative number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field6" class="form-control number negative">
-                        <p class="help-block" id="hint_id_field6">&nbsp;</p>
                     </div>
                 </div>
 
@@ -68,7 +67,6 @@
                     <label class="control-label col-sm-5" for="id_field7">min number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field7" class="form-control number min 5">
-                        <p class="help-block" id="hint_id_field7">&nbsp;</p>
                     </div>
                 </div>
 
@@ -76,7 +74,6 @@
                     <label class="control-label col-sm-5" for="id_field8">max number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field8" class="form-control number max 5">
-                        <p class="help-block" id="hint_id_field8">&nbsp;</p>
                     </div>
                 </div>
 
@@ -84,7 +81,7 @@
                     <label class="control-label col-sm-5" for="id_field9">ranged number</label>
                     <div class="controls col-sm-7">
                         <input type="text" id="id_field9" class="form-control number min 4 max 6">
-                        <p class="help-block" id="hint_id_field9">Enter value between 4 and 6</p>
+                        <p class="help-block" id="hint_id_field9">Enter value between 4 and 6.</p>
                     </div>
                 </div>
 
@@ -139,4 +136,3 @@
     </script>
 </body>
 </html>
-

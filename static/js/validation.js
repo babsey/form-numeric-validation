@@ -8,14 +8,14 @@
 
 function clear_field(field) {
     field.parents('.form-group').removeClass('has-error has-success has-feedback');
-    field.parent().find("span.help-block").remove();
+    field.parent().find(".error-text").remove();
     field.parent().find("span.glyphicon").remove();
 }
 
 function clear_form(form) {
     form.find(".alert").remove();
     form.find('.form-group').removeClass('has-error has-success has-feedback');
-    form.find("span.help-block").remove();
+    form.find(".error-text").remove();
     form.find("span.glyphicon").remove();
 }
 
@@ -66,13 +66,13 @@ function field_validation(field) {
     if (error_msg.length == 0) {
         if (val || field.hasClass('required')) {
             div.addClass('has-success');
-            div.find("p.help-block").prepend('<span aria-hidden="true" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+            $('<span aria-hidden="true" class="glyphicon glyphicon-ok form-control-feedback"></span>').insertAfter(field);
         }
     } else {
         div.addClass('has-error');
-        div.find("p.help-block").prepend('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+        $('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>').insertAfter(field);
         for (var i=0; i<error_msg.length;i++) {
-            div.find("p.help-block").prepend('<span class="help-block"><strong>'+error_msg[i]+'</strong></span>');
+            $('<span class="error-text help-block"><strong>'+error_msg[i]+'</strong></span>').insertAfter(field);
         }
     }
     div.addClass('has-feedback');
@@ -93,9 +93,9 @@ function form_validation(form, clean_form_action, clean_field_action) {
             }
         }
     })
-    if (error_fields.length == 0) { 
+    if (error_fields.length == 0) {
         clean_form_action
-    } else { 
+    } else {
         form.prepend('<h4 class="alert alert-danger">Oh snap! You got an error!</h4>');
         error_fields[0].focus();
     }
